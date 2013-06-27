@@ -1,5 +1,5 @@
 {
-  "name": "Words to Number",
+  "name": "wtn",
   "description": "Javascript/Node.js module to convert words to number",
   "version": "0.0.1",
   "author": {
@@ -12,9 +12,6 @@
       "email": "ribhararnus.pracutiar@gmail.com"
     }
   ],
-  "dependencies": {
-    
-  },
   "keywords": [
     "words",
     "grammar",
@@ -23,7 +20,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/raitucarp/wtn.git"
+    "url": "git://github.com/raitucarp/wtn.git"
   },
   "main": "index",
   "engines": {
