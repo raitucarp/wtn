@@ -3,16 +3,41 @@ function wordsToNumberException(message, name) {
 	this.name = name;
 }
 var wordsToNumber = function(word){
+	word = word.replace(/([\W]+)/g, ' ').replace(/\b(and)\b/g, ' ').replace(/\s{2,}/, ' ');
+	
 	var tokenToNumber = function(string, rule){
 		string = string
-				 .replace('one', 1).replace('two', 2).replace('three', 3).replace('four', 4).replace('five', 5)
-				 .replace('six', 6).replace('seven', 7).replace('eight', 8).replace('nine', 9)
-				 .replace('ten', 10).replace('eleven', 11).replace('twelve', 12).replace('thirteen', 13)
-				 .replace('fourteen', 14).replace('fifteen', 15).replace('sixteen', 16).replace('seveteen', 17)
-				 .replace('eighteen', 18).replace('nineteen', 19)
-				 .replace('twenty', 20).replace('thirty', 30).replace('forty', 40).replace('fifty', 50).replace('sixty', 60)
-				 .replace('seventy', 70).replace('eighty', 80).replace('ninety', 90)
-				 .replace('hundred', 100).replace('thousand', 1000).replace('million', 1000000).replace('billion', 1000000000);
+				 .replace(/\b(one)\b/, 1)
+				 .replace(/\b(two)\b/, 2)
+				 .replace(/\b(three)\b/, 3)
+				 .replace(/\b(four)\b/, 4)
+				 .replace(/\b(five)\b/, 5)
+				 .replace(/\b(six)\b/, 6)
+				 .replace(/\b(seven)\b/, 7)
+				 .replace(/\b(eight)\b/, 8)
+				 .replace(/\b(nine)\b/, 9)
+				 .replace(/\b(ten)\b/, 10)
+				 .replace(/\b(eleven)\b/, 11)
+				 .replace(/\b(twelve)\b/, 12)
+				 .replace(/\b(thirteen)\b/, 13)
+				 .replace(/\b(fourteen)\b/, 14)
+				 .replace(/\b(fifteen)\b/, 15)
+				 .replace(/\b(sixteen)\b/, 16)
+				 .replace(/\b(seveteen)\b/, 17)
+				 .replace(/\b(eighteen)\b/, 18)
+				 .replace(/\b(nineteen)\b/, 19)
+				 .replace(/\b(twenty)\b/, 20)
+				 .replace(/\b(thirty)\b/, 30)
+				 .replace(/\b(forty)\b/, 40)
+				 .replace(/\b(fifty)\b/, 50)
+				 .replace(/\b(sixty)\b/, 60)
+				 .replace(/\b(seventy)\b/, 70)
+				 .replace(/\b(eighty)\b/, 80)
+				 .replace(/\b(ninety)\b/, 90)
+				 .replace(/\b(hundred)\b/, 100)
+				 .replace(/\b(thousand)\b/, 1000)
+				 .replace(/\b(million)\b/, 1000000)
+				 .replace(/\b(billion)\b/, 1000000000);
 		return string;
 	}
 	
@@ -24,8 +49,6 @@ var wordsToNumber = function(word){
 			incTenth 	= 0, 
 			incSpecial  = 0;
 		
-		console.log('--');
-
 		for(var i in statements){
 			var statement = statements[i].replace(/^\s+|\s+$/g, '');
 			if(statement == '') throw "Error token";
@@ -57,6 +80,7 @@ var wordsToNumber = function(word){
 			ev += (i == statements.length-1) ? order : '('+order + ' * ' + value['power'][incPower]+') + ';
 			incPower++;
 		}
+		
 		returns = eval(tokenToNumber(ev));
 		return returns;
 	};
@@ -96,21 +120,19 @@ var wordsToNumber = function(word){
 	}
 	
 	var convert = function (string) {
-		var power 	= new RegExp('('+['thousand', 'million', 'billion'].join('|')+')', 'g'),
-			hundred = new RegExp('('+['hundred'].join('|')+')', 'g'),
-			tenth  	= new RegExp('('+
-						['twenty', 'thirty', 'fourty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'].join('|')+')', 'g'),
-			unit    = new RegExp('('+
-						['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'].join('|')+')', 'g');
-			special = new RegExp('('+
-						['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen',
-						 'sixteen', 'seveteen', 'eighteen', 'nineteen'].join('|')+')', 'g');
+		var power 	= new RegExp('\\b('+['thousand', 'million', 'billion'].join('|')+')\\b', 'g'),
+			hundred = new RegExp('\\b('+['hundred'].join('|')+')\\b', 'g'),
+			tenth  	= new RegExp('\\b('+['twenty', 'thirty', 'fourty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'].join('|')+')\\b', 'g'),
+			unit    = new RegExp('\\b('+['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'].join('|')+')\\b', 'g');
+			special = new RegExp('\\b('+['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen',
+						 'sixteen', 'seveteen', 'eighteen', 'nineteen'].join('|')+')\\b', 'g'); 
 		var value = new Array();		 
 			value['power'] 	=  (string.match(power) == null) ? [''] : string.match(power);
 			value['hundred']=  (string.match(hundred) == null) ? [''] : string.match(hundred);
 			value['tenth']	=  (string.match(tenth) == null) ? [''] : string.match(tenth);
 			value['unit']   =  (string.match(unit) == null) ? [''] : string.match(unit);
 			value['special']=  (string.match(special) == null) ? [''] : string.match(special);
+			
 		
 		string = string
 				 .replace(power, 'power')
