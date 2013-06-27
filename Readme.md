@@ -1,1 +1,1 @@
-reversed to readme
+Converts Words to Number
