@@ -7,9 +7,19 @@ describe("Wtn", function(){
         wtn.convert("twenty five").should.equal(25);
     });
 
-    it("should tokenize number correctly", function(){
-        wtn.tokenToNumber('one').should.equal('1');
-        wtn.tokenToNumber('one two three').should.equal('1 2 3');
-        wtn.tokenToNumber('fifteen hundred').should.equal('15 100');
+    describe("Token To Number", function(){
+        it("Should tokenize number correctly", function(){
+            wtn.tokenToNumber('one').should.equal('1');
+            wtn.tokenToNumber('one two three').should.equal('1 2 3');
+            wtn.tokenToNumber('fifteen hundred').should.equal('15 100');
+        });
+
+        it("Should not tokenize unkown", function(){
+            wtn.tokenToNumber("this shall not pass").should.equal("this shall not pass");
+        });
+
+        it("Should tokenize string to number even in sentences", function(){
+            wtn.tokenToNumber("i have one phone").should.equal("i have 1 phone");
+        });
     });
 });
