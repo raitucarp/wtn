@@ -20,6 +20,12 @@ describe("Wtn", function(){
 
         it("Should tokenize string to number even in sentences", function(){
             wtn.tokenToNumber("i have one phone").should.equal("i have 1 phone");
+            wtn.tokenToNumber("I have twenty five phone").should.equal("I have 20 5 phone");
+        });
+
+        it("Should tokenize correctly even when the words arent seperated", function(){
+            // TODO ini memang seperti ini?
+            wtn.tokenToNumber("I haveone phone").should.equal("I haveone phone");
         });
     });
 });
