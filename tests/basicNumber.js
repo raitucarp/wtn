@@ -9,5 +9,7 @@ describe("Wtn", function(){
 
     it("should tokenize number correctly", function(){
         wtn.tokenToNumber('one').should.equal('1');
+        wtn.tokenToNumber('one two three').should.equal('1 2 3');
+        wtn.tokenToNumber('fifteen hundred').should.equal('15 100');
     });
 });
