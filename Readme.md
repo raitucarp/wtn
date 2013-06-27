@@ -8,9 +8,9 @@
 # Example
 
     var wtn = require('wtn');
-    console.log(wtn('three thousand and one hundred')); // 3100
-    console.log(wtn('twenty five')); // 25 
-    console.log(wtn('one hundred thousand and sixty five')); //100065
+    console.log(wtn.convert('three thousand and one hundred')); // 3100
+    console.log(wtn.convert('twenty five')); // 25
+    console.log(wtn.convert('one hundred thousand and sixty five')); //100065
 
 # TODO
 
