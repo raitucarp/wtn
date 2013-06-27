@@ -1,0 +1,35 @@
+{
+  "name": "Words to Number",
+  "description": "Javascript/Node.js module to convert words to number",
+  "version": "0.0.1",
+  "author": {
+    "name": "Ribhararnus Pracutiar",
+    "email": "ribhararnus.pracutiar@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Ribhararnus Pracutiar",
+      "email": "ribhararnus.pracutiar@gmail.com"
+    }
+  ],
+  "dependencies": {
+    
+  },
+  "keywords": [
+    "words",
+    "grammar",
+    "number",
+    "utility",
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raitucarp/wtn.git"
+  },
+  "main": "index",
+  "engines": {
+    "node": "*"
+  },
+  "readme": "test",
+  "readmeFilename": "Readme.md",
+  "_id": "wtn@0.0.1"
+}
