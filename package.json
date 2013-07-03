@@ -26,7 +26,7 @@
   "engines": {
     "node": "*"
   },
-  "readme": "# Introduction\r\n**WTN** is an abbreviation of Words to Numbers. It will convert english words to number. It's useful for script that use words as a parameter\r\n\r\n# Install\r\n\r\n> npm install wtn\r\n\r\n# Example\r\n\r\n    var wtn = require('wtn');\r\n    console.log(wtn('three thousand and one hundred')); // 3100\r\n    console.log(wtn('twenty five')); // 25 \r\n    console.log(wtn('one hundred thousand and sixty five')); //100065\r\n\r\n# TODO\r\n\r\n - Support International language & its grammar\r\n - Increase performance of code\r\n - Create Unit Testing",
+  "readme": "# Introduction\r\n**WTN** is an abbreviation of Words to Numbers. It will convert english words to number. It's useful for script that use words as a parameter\r\n\r\n# Install\r\n\r\n> npm install wtn\r\n\r\n# Example\r\n\r\n    var wtn = require('wtn');\r\n    console.log(wtn.convert('three thousand and one hundred')); // 3100\r\n    console.log(wtn.convert('twenty five')); // 25\r\n    console.log(wtn.convert('one hundred thousand and sixty five')); //100065\r\n\r\n# TODO\r\n\r\n - Support International language & its grammar\r\n - Increase performance of code\r\n - Create Unit Testing",
   "readmeFilename": "Readme.md",
   "_id": "wtn@0.0.1",
   "devDependencies": {
